@@ -46,7 +46,7 @@ def maybe_download(filename, expected_bytes):
         'Failed to verify ' + filename + '. Can you get to it with a browser?')
   return filename
 
-filename = maybe_download('mytext.zip', 12674)
+filename = maybe_download('crowdre16reqs.zip', 111382)
 
 # Read the data into a list of strings.
 def read_data(filename):
@@ -59,7 +59,7 @@ vocabulary = read_data(filename)
 print('Data size', len(vocabulary))
 
 # Step 2: Build the dictionary and replace rare words with UNK token.
-vocabulary_size = 500
+vocabulary_size = 1000
 
 
 def build_dataset(words, n_words):
@@ -253,7 +253,7 @@ try:
   import matplotlib.pyplot as plt
 
   tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=500, method='exact')
-  plot_only = 100
+  plot_only = 200
   low_dim_embs = tsne.fit_transform(final_embeddings[:plot_only, :])
   labels = [reverse_dictionary[i] for i in xrange(plot_only)]
   plot_with_labels(low_dim_embs, labels)
